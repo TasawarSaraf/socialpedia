@@ -19,6 +19,8 @@ dotenv.config();
 
 const app = express();
 
+// const uri = "mongodb+srv://tazsaraf:Helema123@cluster0.rj5l5ey.mongodb.net/?retryWrites=true&w=majority";
+
 app.use(express.json());
 app.use(helmet());
 app.use(helmet.crossOriginResourcePolicy({policy: "cross-origin"}));
@@ -38,7 +40,17 @@ const storage = multer.diskStorage({
         cb(null, file.originalname);
     }
 });
+const upload = multer({storage});
 
 
+/* MONGOOSE SETUP */
+const PORT = process.env.PORT || 6001;
 
+mongoose.connect(process.env.MONGO_URL,{
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+})
+.then(()=>{
+    app.listen(PORT ,() => console.log("Server Port "+ PORT));
+}).catch((err)=> console.log(err + " did not connect"));
 
