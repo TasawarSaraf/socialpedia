@@ -9,6 +9,7 @@ import morgan from "morgan";
 import helmet from "helmet";
 import path from "path";
 import {fileURLToPath} from "url";
+import {register} from "./controllers/auth.js";
 
 
 /*CONFIGURATIONS */
@@ -41,6 +42,12 @@ const storage = multer.diskStorage({
     }
 });
 const upload = multer({storage});
+
+
+/*ROUTES WITH FILES*/
+
+/* upload.single("picture") is our middleware and register will be the callback function for the middleware*/
+app.post("/auth/register", upload.single("picture"), register);
 
 
 /* MONGOOSE SETUP */
