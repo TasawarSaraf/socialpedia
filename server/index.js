@@ -20,7 +20,6 @@ dotenv.config();
 
 const app = express();
 
-// const uri = "mongodb+srv://tazsaraf:Helema123@cluster0.rj5l5ey.mongodb.net/?retryWrites=true&w=majority";
 
 app.use(express.json());
 app.use(helmet());
