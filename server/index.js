@@ -10,7 +10,7 @@ import helmet from "helmet";
 import path from "path";
 import {fileURLToPath} from "url";
 import {register} from "./controllers/auth.js";
-
+import authRoutes from "./routes/auth.js";
 
 /*CONFIGURATIONS */
 const __filename = fileURLToPath(import.meta.url);
@@ -47,6 +47,10 @@ const upload = multer({storage});
 
 /* upload.single("picture") is our middleware and register will be the callback function for the middleware*/
 app.post("/auth/register", upload.single("picture"), register);
+
+
+/*ROUTES*/
+app.use("/auth", authRoutes);
 
 
 /* MONGOOSE SETUP */
