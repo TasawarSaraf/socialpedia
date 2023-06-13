@@ -68,6 +68,7 @@ app.use("/posts",postRoutes);
 
 
 /* MONGOOSE SETUP */
+
 const uri = process.env.MONGO_URL;
 const PORT = process.env.PORT || 6001;
 
