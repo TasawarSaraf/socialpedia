@@ -44,10 +44,10 @@ Similarly, other reducer functions update the state based on the provided payloa
 
 export const authSlice = createSlice({
     name: "auth",
-    initialState,
+    intiialState,
     reducers:{
         setMode: (state) =>{
-            state.mode = state.mode === light ? "dark" : "light";
+            state.mode = state.mode === "light" ? "dark" : "light";
         },
 
         setLogin: (state, action) =>{
@@ -57,8 +57,8 @@ export const authSlice = createSlice({
         },
 
         setLogout: (state) =>{
-            state.user = null,
-            state.token = null
+            state.user = null;
+            state.token = null;
         },
 
         setFriends: (state, action) =>{
@@ -91,4 +91,4 @@ export const authSlice = createSlice({
 
 export const {setMode, setFriends, setLogin, setLogout, setPosts, setPost} = authSlice.actions
 
-export default authSlice.reducers;
+export default authSlice.reducer;
