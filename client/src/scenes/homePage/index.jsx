@@ -1,12 +1,12 @@
+import { Box } from "@mui/system";
 import Navbar from "scenes/navbar";
 
 
 const HomePage = () =>{
     return (
-        <div>
-            <Navbar/>
-            HomePage
-        </div>
+       <Box>
+           <Navbar/>
+       </Box>
     )
 }
 
